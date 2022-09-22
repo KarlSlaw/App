@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <!--<ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--falta validar el email y llenar el registro-->
+<ion-content fullscreen>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input #email  required type="email" value placeholder="ejemplo@dominio.com"></ion-input>
+  </ion-item>
+  <!--formControlName="email" name="email"-->
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input #password required type="password"></ion-input>
+  </ion-item>
+
+  <br>
+  <div *ngIf="mensaje;">
+    <!-- <h3 id="Error">Mensaje: {{mensaje}}</h3> -->
+  </div>
+
+ <ion-row>
+    <ion-col size="12">
+      <ion-button (click)="notificar(email, password)" expand="block" type="submit" class="ion-no-margin" shape="round" color="warning">Ingresar</ion-button>
+      <br>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button  expand="block" type="submit" class="ion-no-margin" routerLink="/recuperar" shape="round" >Restablecer contraseña</ion-button>
+    </ion-col>
+ </ion-row>
+
+  
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="notificar(email, password)" color="danger">
+      <ion-icon slot="icon-only" name="warning"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="limpiar(email, password)" color="light" slot="end">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-footer>
